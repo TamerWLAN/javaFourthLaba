@@ -7,6 +7,6 @@ public class Main {
 //        Reader rd = new Reader();
 //        System.out.println(rd.read(Path.of("src/files/foreign_names.csv")));
 
-        Employees emp = new Employees("15;96;adasf;156;");
+
     }
 }
