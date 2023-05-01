@@ -42,7 +42,7 @@ public class Reader {
      * Метод проверяющий строку данных на их валидность, вызывающий исключения в противном случае
      * @param data список данных в строковом формате
      */
-    private void checkDataValidity(final List<String> data) {
+    protected void checkDataValidity(final List<String> data) {
         if (data.size() < 6) {
             throw new RuntimeException("Invalid lines of data in file");
         }
@@ -65,7 +65,7 @@ public class Reader {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.uuuu");
             LocalDate.parse(data.get(3), formatter);
         } catch (Exception e) {
-            throw new RuntimeException("Invalid data");
+            throw new RuntimeException("Invalid date");
         }
 
         if (Integer.parseInt(data.get(5)) < 0) {
