@@ -9,13 +9,26 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * класс для чтения информации из csv файла
+ * возвращающий список сотрудников , сформированный на основе файла
+ * @author Artem Kozlitin
+ * @version 1.4
+ * @since 1.0
+ */
 public class Reader {
+    /**Список подразделений из файла*/
     private final List<Division> divisionList;
-
+    /**Конструктор класса без параметров*/
     Reader() {
         this.divisionList = new ArrayList<>();
     }
 
+    /**
+     * Метод, возвращающий содержимое всего файла в одну строку
+     * @param targetFilePath объект типа Path, хранящий путь к csv файлу
+     * @return либо содержимое файла либо пустая строка
+     */
     private String read(Path targetFilePath) {
         try {
             return Files.readString(targetFilePath);
@@ -25,6 +38,10 @@ public class Reader {
         }
     }
 
+    /**
+     * Метод проверяющий строку данных на их валидность, вызывающий исключения в противном случае
+     * @param data список данных в строковом формате
+     */
     private void checkDataValidity(final List<String> data) {
         if (data.size() < 6) {
             throw new RuntimeException("Invalid lines of data in file");
@@ -56,6 +73,11 @@ public class Reader {
         }
     }
 
+    /**
+     * Метод, создающий сотрудника, на основе данных из строки
+     * @param sourceLine исходная строка с данными
+     * @return сотрудник, созданный на основе данных из строки
+     */
     private Employee createNewEmployees(final String sourceLine) {
         final var targetLine = Arrays.asList(sourceLine.split(";"));
 
@@ -84,6 +106,11 @@ public class Reader {
         return new Employee(id, name, gender, birthDate, division, Salary);
     }
 
+    /**
+     * Метод, создающий на основе данных из файла, список сотрудников
+     * @param targetFile путь к файлу
+     * @return список сотрудников
+     */
     public List<Employee> getListFromFile(final String targetFile) {
         divisionList.clear();
         String fileContent = read(Path.of(targetFile));
