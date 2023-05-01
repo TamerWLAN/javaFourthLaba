@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="368c3720-68bd-4e63-9359-c2e396cddf6a" name="Changes" comment="Added class reader, division, employees. Created gender enum. Load csv sourceFiles, wrote file reader and employee constructor from string">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/art/Employee.java" afterDir="false" />
+    <list default="true" id="368c3720-68bd-4e63-9359-c2e396cddf6a" name="Changes" comment="Changed employee constructor. String parsing and data validation were moved to the reader class.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/art/Division.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/art/Division.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/art/Employees.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/art/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/art/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/art/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/art/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/art/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/art/Reader.java" afterDir="false" />
     </list>
@@ -50,13 +48,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\TamerLAN\IdeaProjects\javaFourthLaba\src" />
@@ -79,7 +76,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682894451887</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Changed employee constructor. String parsing and data validation were moved to the reader class.">
+      <created>1682896831810</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682896831810</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -87,7 +91,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added class reader, division, employees. Created gender enum. Load csv sourceFiles, wrote file reader and employee constructor from string" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added class reader, division, employees. Created gender enum. Load csv sourceFiles, wrote file reader and employee constructor from string" />
+    <MESSAGE value="Changed employee constructor. String parsing and data validation were moved to the reader class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed employee constructor. String parsing and data validation were moved to the reader class." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

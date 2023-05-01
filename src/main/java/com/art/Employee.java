@@ -8,7 +8,7 @@ public class Employee {
     private Gender gender;
     private LocalDate birthDate;
     private Division division;
-    private int Salary;
+    private int salary;
 
     public Employee(final int id, final String name, final Gender gender,
                     final LocalDate birthDate, final Division division, final int Salary) {
@@ -18,10 +18,11 @@ public class Employee {
         this.gender = gender;
         this.birthDate = birthDate;
         this.division = division;
-        this.Salary = Salary;
+        this.salary = Salary;
     }
 
     public  String getInfo() {
-        return "";
+        return String.format(" Id:%d \n Name: %s \n Gender: %s \n BithDate: %s \n Division id: %d \n Division name: %s \n Salary: %d \n ----------------",
+                id, name, gender.toString(), birthDate.toString() ,division.getId(), division.getName(), salary);
     }
 }

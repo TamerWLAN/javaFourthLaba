@@ -4,20 +4,24 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Reader {
-    public String read(Path targetFilePath) {
+    private List<Division> divisionList;
+    Reader() {
+        this.divisionList = new ArrayList<>();
+    }
+    private String read(Path targetFilePath) {
         try {
             return Files.readString(targetFilePath);
         } catch (final IOException ioe) {
-            System.err.println(ioe.getMessage());
-            return "";
+            throw new RuntimeException(ioe.getMessage());
         }
     }
-
-    public void checkDataValidity(final List<String> data) {
+    private void checkDataValidity(final List<String> data) {
         try {
             Integer.parseInt(data.get(0));
         } catch (Exception e) {
@@ -33,7 +37,8 @@ public class Reader {
         }
 
         try {
-            LocalDate.parse(data.get(3));
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.uuuu");
+            LocalDate.parse(data.get(3), formatter);
         } catch (Exception e) {
             throw new RuntimeException("Invalid data");
         }
@@ -42,7 +47,7 @@ public class Reader {
             throw new RuntimeException("Invalid salary");
         }
     }
-    private Employee createNewEmployees(final String sourceLine, List<Division> divisionList) {
+    private Employee createNewEmployees(final String sourceLine) {
         final var targetLine = Arrays.asList(sourceLine.split(";"));
 
         checkDataValidity(targetLine);
@@ -50,16 +55,34 @@ public class Reader {
         final int id = Integer.parseInt(targetLine.get(0));
         final String name = targetLine.get(1);
         final Gender gender = targetLine.get(2).equals("Male") ? Gender.Male : Gender.Female;
-        final LocalDate birthDate = LocalDate.parse(targetLine.get(3));
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.uuuu");
+        final LocalDate birthDate = LocalDate.parse(targetLine.get(3), formatter);
+
+        final Division division;
         final var listOfEqualsDivision = divisionList.stream().filter(elem->elem.getName().equals(targetLine.get(4))).toList();
-        final Division division = listOfEqualsDivision.size() > 0 ? listOfEqualsDivision.get(0) : new Division(targetLine.get(4));
+
+        if (listOfEqualsDivision.size() > 0) {
+            division = listOfEqualsDivision.get(0);
+        } else {
+            divisionList.add(new Division(targetLine.get(4)));
+            division = divisionList.get(divisionList.size() - 1);
+        }
+
 
         final int Salary = Integer.parseInt(targetLine.get(5));
 
         return new Employee(id, name, gender, birthDate, division, Salary);
     }
 
+    public List<Employee> getListFromFile(final String targetFile) {
+        divisionList.clear();
+        String fileContent = read(Path.of(targetFile));
 
+        fileContent = fileContent.replace("\r", "");
+        fileContent = fileContent.substring(fileContent.indexOf("\n") + 1);
+
+        return Arrays.stream(fileContent.split("\n")).map(this::createNewEmployees).toList();
+    }
 
 }
