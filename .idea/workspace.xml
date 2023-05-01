@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="368c3720-68bd-4e63-9359-c2e396cddf6a" name="Changes" comment="Changed employee constructor. String parsing and data validation were moved to the reader class.">
+    <list default="true" id="368c3720-68bd-4e63-9359-c2e396cddf6a" name="Changes" comment="Some bug fixes, add date time formatter. Changed getListFromFile function, to skip first line">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/art/Division.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/art/Division.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/art/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/art/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/art/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/art/Gender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/art/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/art/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/art/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/art/Reader.java" afterDir="false" />
     </list>
@@ -48,12 +50,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\TamerLAN\IdeaProjects\javaFourthLaba\src" />
@@ -83,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682896831810</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Some bug fixes, add date time formatter. Changed getListFromFile function, to skip first line">
+      <created>1682899373238</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682899373238</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -92,7 +101,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added class reader, division, employees. Created gender enum. Load csv sourceFiles, wrote file reader and employee constructor from string" />
     <MESSAGE value="Changed employee constructor. String parsing and data validation were moved to the reader class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed employee constructor. String parsing and data validation were moved to the reader class." />
+    <MESSAGE value="Some bug fixes, add date time formatter. Changed getListFromFile function, to skip first line" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some bug fixes, add date time formatter. Changed getListFromFile function, to skip first line" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

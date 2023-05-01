@@ -1,9 +1,12 @@
 package com.art;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Division {
     private static int startId = 0;
-    private int id;
-    private String name;
+    @NotNull
+    private final int id;
+    private final String name;
 
     public Division(final String nameOfDivision) {
         this.name = nameOfDivision;

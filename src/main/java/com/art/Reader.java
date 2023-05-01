@@ -10,29 +10,37 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Reader {
-    private List<Division> divisionList;
+    private final List<Division> divisionList;
+
     Reader() {
         this.divisionList = new ArrayList<>();
     }
+
     private String read(Path targetFilePath) {
         try {
             return Files.readString(targetFilePath);
         } catch (final IOException ioe) {
-            throw new RuntimeException(ioe.getMessage());
+            System.err.println(ioe.getMessage());
+            return "";
         }
     }
+
     private void checkDataValidity(final List<String> data) {
+        if (data.size() < 6) {
+            throw new RuntimeException("Invalid lines of data in file");
+        }
+
         try {
             Integer.parseInt(data.get(0));
         } catch (Exception e) {
             throw new RuntimeException("Invalid employee id");
         }
 
-        if(Integer.parseInt(data.get(0)) < 0) {
+        if (Integer.parseInt(data.get(0)) < 0) {
             throw new RuntimeException("Invalid employee id");
         }
 
-        if(!data.get(2).equals("Male") && !data.get(2).equals("Female")) {
+        if (!data.get(2).equals("Male") && !data.get(2).equals("Female")) {
             throw new RuntimeException("Invalid gender");
         }
 
@@ -43,10 +51,11 @@ public class Reader {
             throw new RuntimeException("Invalid data");
         }
 
-        if(Integer.parseInt(data.get(5)) < 0) {
+        if (Integer.parseInt(data.get(5)) < 0) {
             throw new RuntimeException("Invalid salary");
         }
     }
+
     private Employee createNewEmployees(final String sourceLine) {
         final var targetLine = Arrays.asList(sourceLine.split(";"));
 
@@ -60,7 +69,7 @@ public class Reader {
         final LocalDate birthDate = LocalDate.parse(targetLine.get(3), formatter);
 
         final Division division;
-        final var listOfEqualsDivision = divisionList.stream().filter(elem->elem.getName().equals(targetLine.get(4))).toList();
+        final var listOfEqualsDivision = divisionList.stream().filter(elem -> elem.getName().equals(targetLine.get(4))).toList();
 
         if (listOfEqualsDivision.size() > 0) {
             division = listOfEqualsDivision.get(0);
